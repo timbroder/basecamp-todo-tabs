@@ -1,0 +1,29 @@
+Drag this link to your Bookmarks bar: 
+<a href='javascript:function tab3(){"use strict";var a=document.getElementsByClassName("todo"),b=window.confirm("Do you want to open "+(a.length-1)+" BC Todos?");if(b)for(var c=1;c<a.length;c++){var d=a[c].getElementsByTagName("a"),e=d[d.length-1];if(window.navigator.vendor=="Google Inc."){var f=document.createEvent("MouseEvents");f.initMouseEvent("click",!1,!0,window,0,0,0,0,0,!0,!1,!1,!0,0,null),e.dispatchEvent(f)}else window.open(e.href)}}tab3()'>BC3Tabs</a>
+<br/>
+Then, whenever you are in a Todo list of report, click the button and all the visible Todos will open in new tabs.
+
+<!-- raw
+function tab3()
+{
+	"use strict";
+	var elms = document.getElementsByClassName('todo'),
+		conf = window.confirm('Do you want to open '+(elms.length-1)+' BC Todos?'); 
+	if (conf) {
+		for ( var i=1; i<elms.length; i++ ) {
+			var pelm = elms[i].getElementsByTagName('a'),
+				elm = pelm[pelm.length-1];
+			if (window.navigator.vendor == 'Google Inc.') {
+				var clk = document.createEvent("MouseEvents");
+				clk.initMouseEvent("click", false, true, window, 0, 0, 0, 0, 0, true, false, false, true, 0, null);
+				elm.dispatchEvent(clk);
+			}
+			else {
+				window.open(elm.href);
+			}
+		}
+	} 
+}
+tab3();
+
+-->
